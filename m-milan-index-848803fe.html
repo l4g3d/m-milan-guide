@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <title>米兰体育 · 稳定视角</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: #f5f9fc;
+      color: #1e2b3c;
+      line-height: 1.7;
+    }
+
+    /* 主色调：蓝绿点缀 */
+    .accent-bg {
+      background: #0d7c7c;
+    }
+
+    .accent-text {
+      color: #0d7c7c;
+    }
+
+    .btn-outline-accent {
+      display: inline-block;
+      border: 2px solid #0d7c7c;
+      color: #0d7c7c;
+      background: transparent;
+      padding: 0.6rem 1.8rem;
+      border-radius: 40px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: 0.25s ease;
+      font-size: 1rem;
+    }
+
+    .btn-outline-accent:hover {
+      background: #0d7c7c;
+      color: #fff;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* ---------- hero ---------- */
+    .hero {
+      background: linear-gradient(145deg, #e2f0f0 0%, #d3e9e9 100%);
+      padding: 4.5rem 1.5rem 3.8rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero h1 {
+      font-size: 2.6rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: #13353e;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero h1 span {
+      color: #0d7c7c;
+    }
+
+    .hero p {
+      max-width: 640px;
+      margin: 0.8rem auto 2rem;
+      font-size: 1.15rem;
+      color: #2c4b52;
+    }
+
+    .hero .tagline {
+      display: inline-block;
+      background: rgba(13, 124, 124, 0.12);
+      padding: 0.4rem 1.5rem;
+      border-radius: 50px;
+      font-size: 0.95rem;
+      color: #0b5f5f;
+      margin-bottom: 1.5rem;
+    }
+
+    /* ---------- 卡片网格 ---------- */
+    .section-title {
+      font-size: 1.9rem;
+      font-weight: 600;
+      margin-bottom: 2.2rem;
+      color: #13353e;
+      text-align: center;
+    }
+
+    .section-sub {
+      text-align: center;
+      color: #4b6a72;
+      max-width: 700px;
+      margin: 0 auto 2.8rem;
+    }
+
+    .grid-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 1.8rem;
+      margin: 3rem 0;
+    }
+
+    .card {
+      background: white;
+      border-radius: 28px;
+      padding: 2rem 1.5rem;
+      box-shadow: 0 8px 24px rgba(13, 124, 124, 0.06);
+      transition: 0.2s;
+      border: 1px solid rgba(13, 124, 124, 0.08);
+    }
+
+    .card:hover {
+      box-shadow: 0 14px 30px rgba(13, 124, 124, 0.12);
+      transform: translateY(-3px);
+    }
+
+    .card .icon {
+      background: #ddf1f1;
+      width: 48px;
+      height: 48px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      margin-bottom: 1.2rem;
+      color: #0d7c7c;
+    }
+
+    .card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.6rem;
+      font-weight: 600;
+      color: #13353e;
+    }
+
+    .card p {
+      color: #3d5a63;
+      font-size: 0.97rem;
+    }
+
+    /* ---------- 说明区 ---------- */
+    .explain-block {
+      background: white;
+      border-radius: 40px;
+      padding: 3rem 2rem;
+      margin: 3.5rem 0;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.02);
+      border: 1px solid rgba(13, 124, 124, 0.12);
+    }
+
+    .explain-block h2 {
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: #13353e;
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .explain-block p {
+      margin-bottom: 1rem;
+      color: #2e4b52;
+    }
+
+    .explain-block a {
+      color: #0d7c7c;
+      text-decoration: underline;
+      font-weight: 500;
+      text-underline-offset: 3px;
+    }
+
+    .explain-block a:hover {
+      color: #075c5c;
+    }
+
+    /* ---------- FAQ 摘要 ---------- */
+    .faq-summary {
+      background: #e7f3f3;
+      border-radius: 40px;
+      padding: 2.5rem 2rem;
+      margin: 3.2rem 0;
+    }
+
+    .faq-summary h2 {
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: #13353e;
+      margin-bottom: 1.6rem;
+    }
+
+    .faq-item {
+      padding: 0.9rem 0;
+      border-bottom: 1px solid rgba(13, 124, 124, 0.15);
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-question {
+      font-weight: 600;
+      color: #1d3b42;
+      margin-bottom: 0.25rem;
+      font-size: 1.05rem;
+    }
+
+    .faq-answer {
+      color: #3f5c64;
+      font-size: 0.95rem;
+    }
+
+    /* ---------- 底部链接 ---------- */
+    .bottom-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem 2rem;
+      padding: 2.5rem 0 3rem;
+      border-top: 1px solid rgba(13, 124, 124, 0.15);
+      margin-top: 1.5rem;
+    }
+
+    .bottom-links a {
+      color: #2b5959;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0.3rem 0.2rem;
+      border-bottom: 2px solid transparent;
+      transition: 0.2s;
+    }
+
+    .bottom-links a:hover {
+      border-bottom-color: #0d7c7c;
+      color: #0d7c7c;
+    }
+
+    .bottom-links .highlight-link {
+      color: #0d7c7c;
+      font-weight: 600;
+    }
+
+    /* ---------- 响应式 ---------- */
+    @media (max-width: 640px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .section-title {
+        font-size: 1.6rem;
+      }
+
+      .explain-block {
+        padding: 2rem 1.2rem;
+      }
+
+      .faq-summary {
+        padding: 1.8rem 1.2rem;
+      }
+
+      .grid-cards {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+      }
+    }
+
+    /* 小点缀 */
+    .inline-accent {
+      background: rgba(13, 124, 124, 0.08);
+      padding: 0 0.3rem;
+      border-radius: 6px;
+      color: #0d7c7c;
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <div class="tagline">⚡ 稳定 · 清晰 · 日常陪伴</div>
+      <h1>在 <span>米兰体育</span>，找到你的节奏</h1>
+      <p>
+        不是每一次出发都需要喧嚣。一个让人感到安心的信息入口，
+        比什么都重要。<strong>米兰体育</strong>始终以简净的界面和稳定的结构，
+        为你呈现你真正关心的内容。
+      </p>
+      <a href="https://m-milan-sports.com" class="btn-outline-accent">米兰体育</a>
+    </div>
+  </section>
+
+  <!-- 优势区（网格卡片） -->
+  <div class="container">
+    <h2 class="section-title" style="margin-top: 3.5rem;">为什么值得停留</h2>
+    <p class="section-sub">从第一眼到每一次返回，细节里藏着用心。</p>
+    <div class="grid-cards">
+      <div class="card">
+        <div class="icon">🧭</div>
+        <h3>清晰入口</h3>
+        <p>无论使用手机还是电脑，页面结构一目了然。你总能快速找到想要的部分，减少多余的滑动。</p>
+      </div>
+      <div class="card">
+        <div class="icon">📊</div>
+        <h3>信息有层次</h3>
+        <p>内容按照逻辑分区：介绍、特点、常见疑问。每个区域独立又连贯，就像一本翻开的册子。</p>
+      </div>
+      <div class="card">
+        <div class="icon">🔄</div>
+        <h3>体验一致</h3>
+        <p>不同设备上保持相似的视觉节奏。蓝绿点缀柔和，卡片间距舒适，长时间阅读也不易疲惫。</p>
+      </div>
+      <div class="card">
+        <div class="icon">🔒</div>
+        <h3>沉稳基调</h3>
+        <p>没有弹窗干扰，没有夸张标语。只提供必要的说明和引导，把判断交给用户自己。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 说明区 + 自然嵌入链接 -->
+  <div class="container">
+    <div class="explain-block">
+      <h2>📖 关于这个页面</h2>
+      <p>
+        这是一个介绍性质的落地页，为了让你在接触 <a href="https://m-milan-sports.com">米兰体育</a> 之前，
+        先对它的气质和结构有一个温和的印象。我们相信，一个好的信息页面就像一位耐心的向导：
+        不催促，不遮挡，只是安安静静地站在那里，等你需要的时候随时可以问。
+      </p>
+      <p>
+        整个页面围绕<strong class="inline-accent">稳定入口</strong>和<strong class="inline-accent">清晰说明</strong>展开。
+        无论你是第一次听说还是想进一步确认细节，这里都已经准备好了简洁的答案。
+        如果你希望直接进入主体内容，随时可以点击上方的链接，或者通过底部导航找到你习惯的路径。
+      </p>
+      <p style="margin-bottom: 0;">
+        <span style="background: #def1f1; padding: 0.2rem 0.8rem; border-radius: 20px; font-size: 0.9rem;">
+          🌱 本页不含任何第三方跳转或收集信息的行为。
+        </span>
+      </p>
+    </div>
+  </div>
+
+  <!-- FAQ 摘要 -->
+  <div class="container">
+    <div class="faq-summary">
+      <h2>❓ 常见疑问 · 摘要</h2>
+      <div class="faq-item">
+        <div class="faq-question">这个页面是做什么用的？</div>
+        <div class="faq-answer">它是一个介绍页，帮助你从整体上了解米兰体育的设计思路和内容方向，不涉及具体功能。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">手机上看会不会变形？</div>
+        <div class="faq-answer">页面完全适配移动端，卡片和文字会自动调整间距，阅读体验与桌面端保持一致。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">如何快速到达主要内容？</div>
+        <div class="faq-answer">页面顶部的按钮和底部链接都可以直接带你到核心位置。<a href="https://m-milan-sports.com" style="color: #0d7c7c; text-decoration: underline;">米兰体育</a>的首页也延续了相同的布局逻辑。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 底部链接 -->
+  <div class="container">
+    <div class="bottom-links">
+      <a href="https://m-milan-sports.com" class="highlight-link">米兰体育</a>
+      <a href="#">关于说明</a>
+      <a href="#">内容分区</a>
+      <a href="#">常见问题</a>
+      <a href="#">联系方式</a>
+    </div>
+    <div style="text-align: center; padding-bottom: 2rem; font-size: 0.8rem; color: #6f8e96;">
+      © 2025 · 页面仅作展示用途
+    </div>
+  </div>
+
+</body>
+</html>
